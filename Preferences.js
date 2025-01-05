@@ -9,6 +9,9 @@ const Preferences = ({ navigation }) => {
     visibility: "",
     pressure: "",
     cloudCoverage: "",
+    MaxTemperature: "",
+    MinTemperature: "",
+
   });
 
   // Récupérer les préférences sauvegardées au démarrage de la page
@@ -51,6 +54,28 @@ const Preferences = ({ navigation }) => {
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.title}>Set Weather Alert Thresholds</Text>
+
+      <View style={styles.field}>
+        <Text style={styles.label}> Max Temperature (°C)</Text>
+        <TextInput
+          style={styles.input}
+          keyboardType="numeric"
+          placeholder="E.g.: 80"
+          value={preferences.MaxTemperature}
+          onChangeText={(value) => handleInputChange("MaxTemperature", value)}
+        />
+      </View>
+      
+      <View style={styles.field}>
+        <Text style={styles.label}> Min Temperature (°C)</Text>
+        <TextInput
+          style={styles.input}
+          keyboardType="numeric"
+          placeholder="E.g.: 80"
+          value={preferences.MinTemperature}
+          onChangeText={(value) => handleInputChange("MinTemperature", value)}
+        />
+      </View>
 
       <View style={styles.field}>
         <Text style={styles.label}>Humidity (%)</Text>
